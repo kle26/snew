@@ -1,0 +1,23 @@
+<div class="center jumbotron descrizione" style="text-align: center;">
+<h1 style="font-family: 'Rowdies', cursive;  letter-spacing: 1px;">  Descrizione</h1>
+
+
+  <h3 style="font-family: 'Merriweather', serif;"> <strong> Sei un dermatologo o un appasionato di cosmetica? <br /> Allora questa è la web app adatta per te!</strong> </h3><br />
+  <h4 style="font-family: 'Merriweather', serif;">Qui troverai i migliori professionisti del mondo che condivideranno le loro opinioni con te. <br /> <br />
+  <br>         
+ 
+  Sarà molto semplice e veloce trovare il prodotto per il momento opportuno. <br /> <br /> 
+  Per qualsiasi dubbio o in caso di suggerimenti non esitare a conttatarci.  <br /><br />
+  <%if user_signed_in?%>
+  <%else%>
+ Per qualsiasi dubbio<br /> 
+  </h4>
+  <%= link_to "Conatattici ora!", home_contatti_path ,class: "btn btn-lg btn-secondary"%>
+  <br> <br>
+  <h4>Sei ancora curioso? Clicca qui sotto per scoprire<br /> 
+  </h4>
+  <%= link_to "Registrati ora!", new_user_registration_path, class: "btn btn-lg btn-success" %>
+  <%end%>
+   </div>
+  
+</div>

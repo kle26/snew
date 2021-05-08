@@ -1,0 +1,32 @@
+<div class="center jumbotron regolamento" >
+<h1 style="font-family: 'Rowdies', cursive;  letter-spacing: 1px;">  Regolamento</h1>
+
+
+  
+  <h4 style="font-family: 'Merriweather', serif;">
+  <ul>
+  <li>Un utente può registrarsi alla web app attraverso facebook oppure inserendo le proprie
+credenziali richieste direttamente sulla piattaforma. </li> <br />
+  
+  </li> 
+  <li> Un utente può inserire dei prodotti </li><br />
+<li> Tutti gli utenti potranno modificare il proprio username,la password corrente, l'immagine che gli rappresenta
+e contattare gli amministratori della web app.</li><br />
+<li>  Gli amministratori hanno accesso a tutte le funzionalità. Possono eliminare gli utenti, modificare un prodotto, modificare i voti.</li><br />
+</ul>
+
+ 
+  <%if user_signed_in?%>
+  <%else%>
+  Per qualsiasi dubbio<br /> 
+  </h4>
+  <%= link_to "Conatattici ora!", home_contatti_path ,class: "btn btn-lg btn-secondary"%>
+  
+
+  <br><br>
+ <h4> Non sei ancora registrato?<br /> 
+  </h4>
+  <%= link_to "Registrati ora!", new_user_registration_path, class: "btn btn-lg btn-success" %>
+  <%end%>
+  
+</div>

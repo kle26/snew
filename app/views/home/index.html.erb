@@ -1,0 +1,42 @@
+<div class=" center jumbotron entrato" style="text-align: center;">
+  
+  <%if user_signed_in?%>
+  
+  <h1>Buongiorno! </h1>
+  <br>
+  <h3>Quale tipo di trattamento ti interessa?</h3>
+  <br>
+ 
+   
+  <div class="card">
+              <div class="card-header viso"><a href='ricette?category=Colazione'><%= image_tag("viso.jpeg", :title => "viso", :id => "2", :style => "display: block; margin: 0px auto; width: 150px; height: 150px; cursor: pointer;border-radius: 30%;border: 2.5px solid rgb(29, 29, 29);" )%></a></div>
+
+              
+                
+                 <%= link_to 'Viso', home_viso_path,class:"nav-link" , class:"btn btn-outline-secondary"%>
+             
+            </div>
+  <div class="card">
+              <div class="card-header corpo"><%= image_tag("corpo1.jpeg", :title => "pranzo", :id => "1", :style => "display: block; margin: 0px auto; width: 150px; height: 150px; cursor: pointer;border-radius: 30%; border: 2.5px solid rgb(29, 29, 29);") %></a></div>
+              
+                 <%= link_to 'Corpo', home_corpo_path,class:"nav-link",class:"btn btn-outline-secondary" %>
+            </div>
+      
+
+     <div class="card">
+              <div class="card-header capelli"><%= image_tag("capelli.jpeg", :title => "cena", :id => "2", :style => "display: block; margin: 0px auto; width: 150px; height: 150px; cursor: pointer;border-radius: 30%;border: 2.5px solid rgb(29, 29, 29);" )%></a></div>
+
+               <%= link_to 'Capelli', home_capelli_path,class:"nav-link", class:"btn btn-outline-secondary"%>
+        </div>
+        
+ 
+           
+
+  <%else%>
+  <h1 class="display-4">Benvenuto su Skinetics!</h1>
+  <h3>Clicca qui sotto per registrarti<br /> 
+  </h3><br>
+  <%= link_to "Registrati ora!", new_user_registration_path, class: "btn btn-lg btn-success" %>
+  <%end%>
+  
+</div>
