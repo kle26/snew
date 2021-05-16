@@ -8,28 +8,31 @@
   <br>
  
    
-  <div class="card">
-              <div class="card-header viso"><a href='ricette?category=Colazione'><%= image_tag("viso.jpeg", :title => "viso", :id => "2", :style => "display: block; margin: 0px auto; width: 150px; height: 150px; cursor: pointer;border-radius: 30%;border: 2.5px solid rgb(29, 29, 29);" )%></a></div>
-
-              
-                
-                 <%= link_to 'Viso', home_viso_path,class:"nav-link" , class:"btn btn-outline-secondary"%>
-             
-            </div>
-  <div class="card">
-              <div class="card-header corpo"><%= image_tag("corpo1.jpeg", :title => "pranzo", :id => "1", :style => "display: block; margin: 0px auto; width: 150px; height: 150px; cursor: pointer;border-radius: 30%; border: 2.5px solid rgb(29, 29, 29);") %></a></div>
-              
-                 <%= link_to 'Corpo', home_corpo_path,class:"nav-link",class:"btn btn-outline-secondary" %>
-            </div>
-      
-
-     <div class="card">
-              <div class="card-header capelli"><%= image_tag("capelli.jpeg", :title => "cena", :id => "2", :style => "display: block; margin: 0px auto; width: 150px; height: 150px; cursor: pointer;border-radius: 30%;border: 2.5px solid rgb(29, 29, 29);" )%></a></div>
-
-               <%= link_to 'Capelli', home_capelli_path,class:"nav-link", class:"btn btn-outline-secondary"%>
-        </div>
-        
  
+        
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+     <%= image_tag("capelli.jpeg", :title => "capelli", :id => "2", :style => "display: block; margin: 0px auto; width: 500px; height: 500px; cursor: pointer;border-radius: 30%;border: 2.5px solid rgb(29, 29, 29);" )%> <h1 class="display-3">Capelli</h1>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag("corpo1.jpeg", :title => "corpo", :id => "1", :style => "display: block; margin: 0px auto; width: 500px; height: 500px; cursor: pointer;border-radius: 30%; border: 2.5px solid rgb(29, 29, 29);") %>
+      <h1 class="display-3">Corpo</h1>
+    </div>
+    <div class="carousel-item">
+     <%= image_tag("viso.jpeg", :title => "viso", :id => "2", :style => "display: block; margin: 0px auto; width: 500px; height: 500px; cursor: pointer;border-radius: 30%;border: 2.5px solid rgb(29, 29, 29);" )%> <h1 class="display-3">Viso</h1>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>    
+ </div>
            
 
   <%else%>

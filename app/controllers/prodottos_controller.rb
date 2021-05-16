@@ -1,8 +1,8 @@
 class ProdottosController < ApplicationController
-  before_action :set_prodotto, only: [ :show ,:edit, :update, :destroy ]
+  before_action :set_prodotto, only: [ :show ,:edit, :update, :destroy, :create_review ]
   before_action :authenticate_user!, except: [:index, :show]
   before_action :correct_user, only: [:edit, :update, :destroy]
-
+  before_action :authorize_user, except: [:index, :show, :create_review]
   # GET /prodottos or /prodottos.json
   def index
     @prodottos = Prodotto.all
@@ -60,6 +60,17 @@ class ProdottosController < ApplicationController
     end
   end
 
+  def create_review
+    review = @prodotto.reviews.new(body: params[:review])
+    review.user_id = current_user.id
+
+    if review.save
+      redirect_to request.referer, notice: "Review created successfully."
+    else
+      redirect_to request.referer, notice: "Review not created"
+    end
+  end
+
   def correct_user
     @prodotto = current_user.prodottos.find_by(id: params[:id])
     redirect_to prodottos_path, notice:"Not authorized to edit this prodotto" if @prodotto.nil?
@@ -74,5 +85,11 @@ class ProdottosController < ApplicationController
     # Only allow a list of trusted parameters through.
     def prodotto_params
       params.require(:prodotto).permit(:marca, :nome, :categoria, :contenuto, :utilizzo, :media_voti, :user_id, :image, :image_cache)
+    end
+
+    def authorize_user
+      if !current_user.dermatologo?
+        redirect_to root_path, notice: "You cant Perform this operation."
+      end
     end
 end

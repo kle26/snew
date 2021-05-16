@@ -1,10 +1,13 @@
 
 
+
 <div class="jumbotron jumbotron-fluid">
-  
+
 <div class="media">
-  <%= image_tag @prodotto.image.url, width: "400px",class:"align-self-center mr-3" %>
-  
+  <%if @prodotto.image_url%>
+    <%= image_tag @prodotto.image.url, width: "400px",class:"align-self-center mr-3" %>
+  <%end%>
+
   <div class="media-body">
     <h1 class="md-0"> <%= @prodotto.nome %></h1>
     <p>
@@ -36,8 +39,24 @@
 
 <br>
 <br>
-
-<%= link_to 'Edit', edit_prodotto_path(@prodotto),class:"btn btn-dark"%> <br> <br>
-<%= link_to 'Back', prodottos_path,class:"btn btn-dark" %>
+<%if current_user&.dermatologo?%>
+  <%= link_to 'Modifica', edit_prodotto_path(@prodotto),class:"btn btn-dark"%> <br> <br>
+<%else%>
+  <h3>Recensioni</h3>
+  <ul>
+    <% @prodotto.reviews.map do |review|%>
+      <li>
+        <div>
+          <%="#{review.body}"%>
+        </div>
+      </li>
+    <%end%>
+  </ul>
+  <%=form_with url: create_review_prodotto_path(@prodotto) do |form|%>
+    <%=form.text_area :review, placeholder: "Inserisci recensione"%>
+    <%=form.submit "Inserisci"%>
+  <%end%>
+<%end%>
+<%= link_to 'Indietro', prodottos_path,class:"btn btn-dark" %>
 
 

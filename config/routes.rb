@@ -1,6 +1,13 @@
 Rails.application.routes.draw do
-  devise_for :users
-  resources :prodottos
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
+
+  resources :prodottos do
+    member do
+      post :create_review
+    end
+  end
   get 'home/index'
   root 'home#index'
   get 'home/regolamento'

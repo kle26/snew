@@ -1,26 +1,20 @@
-<div class="center jumbotron regolamento" >
-<h1 style="font-family: 'Rowdies', cursive;  letter-spacing: 1px;">  Regolamento</h1>
 
 
-  
-  <h4 style="font-family: 'Merriweather', serif;">
-  <ul>
-  <li>Un utente può registrarsi alla web app attraverso facebook oppure inserendo le proprie
-credenziali richieste direttamente sulla piattaforma. </li> <br />
-  
-  </li> 
-  <li> Un utente può inserire dei prodotti </li><br />
-<li> Tutti gli utenti potranno modificare il proprio username,la password corrente, l'immagine che gli rappresenta
-e contattare gli amministratori della web app.</li><br />
-<li>  Gli amministratori hanno accesso a tutte le funzionalità. Possono eliminare gli utenti, modificare un prodotto, modificare i voti.</li><br />
-</ul>
-
- 
+<div class="jumbotron">
+  <h1 class="display-4">Regolamento</h1>
+  <br>
+  <ul class="list-unstyled, display-5" >  <li>Un utente può registrarsi alla pagina web attraverso facebook oppure inserendo le proprie
+credenziali richieste direttamente sulla piattaforma.</li><br>
+<li>Se sei dermatologo puoi inserire prodotti nelle categorie: viso, corpo e capelli. </li><br>
+<li>Se sei appassionato puoi vedere i prodotti inseriti dai dermatologi e lasciare recensioni secondo la tua esperienza.</li><br>
+ <li>Tutti gli utenti potranno modificare il proprio username,la password attuale e contattare gli amministratori della pagina web.</li><br> <li>
+ Gli amministratori hanno accesso a tutte le funzionalità. Possono eliminare gli utenti, modificare un prodotto e modificare i recensoni.</li>
+<br> <br>
   <%if user_signed_in?%>
   <%else%>
-  Per qualsiasi dubbio<br /> 
-  </h4>
-  <%= link_to "Conatattici ora!", home_contatti_path ,class: "btn btn-lg btn-secondary"%>
+ <h4> Per qualsiasi dubbio<br /> </h4>
+  
+  <%= link_to "Contattaci ora!", home_contatti_path ,class: "btn btn-lg btn-secondary"%>
   
 
   <br><br>
@@ -28,5 +22,4 @@ e contattare gli amministratori della web app.</li><br />
   </h4>
   <%= link_to "Registrati ora!", new_user_registration_path, class: "btn btn-lg btn-success" %>
   <%end%>
-  
 </div>
